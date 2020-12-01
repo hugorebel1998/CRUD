@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/productos/index', 'ProductosController@index')->name('productos.index')->middleware('auth');
 Route::get('/productos/create', 'ProductosController@create')->name('productos.create')->middleware('auth');
 Route::post('/productos/store', 'ProductosController@store')->name('productos.store')->middleware('auth');
+Route::get('/productos/show/{producto}', 'ProductosController@show')->name('productos.show')->middleware('auth');
+Route::get('/productos/edit/{producto}', 'ProductosController@edit')->name('productos.edit')->middleware('auth');
