@@ -38,13 +38,13 @@ class ProductosController extends Controller
 
         $producto->save();
 
-        // $nombreProducto = $request->input('NombreArticulo');
-        // $Seccion = $request->input('Seccion');
-        // $Precio = $request->input('Precio');
-        // $Pais = $request->input('PaisOrigen');
-        // $Fecha = $request->input('Fecha');
-        // var_dump($nombreProducto, $Seccion, $Precio, $Pais, $Fecha);
-        // die();
+        $nombreProducto = $request->input('NombreArticulo');
+        $Seccion = $request->input('Seccion');
+        $Precio = $request->input('Precio');
+        $Pais = $request->input('PaisOrigen');
+        $Fecha = $request->input('Fecha');
+        var_dump($nombreProducto, $Seccion, $Precio, $Pais, $Fecha);
+        die();
     }
     public function edit($id)
     {
