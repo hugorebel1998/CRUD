@@ -24,5 +24,6 @@ class Producto extends Model
         'Precio',
         'PaisOrigen',
         'Fecha'
+
     ];
 }

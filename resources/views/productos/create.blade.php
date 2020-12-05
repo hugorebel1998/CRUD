@@ -8,7 +8,7 @@
                         {{ __('Crear productos') }}
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('productos.store') }}" method="POST">
+                        <form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 pb-4">
@@ -46,7 +46,7 @@
                                 <div class="col-md-6 pb-4">
                                     <label for="Fecha">{{ __('Fecha') }}</label>
                                     <input type="date" class="form-control @error('Fecha') is-invalid @enderror"
-                                        name="Fecha" id="fecha" value="{{ old('Fecha') }}">
+                                        name="Fecha" value="{{ old('Fecha') }}">
                                     @error('Fecha')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

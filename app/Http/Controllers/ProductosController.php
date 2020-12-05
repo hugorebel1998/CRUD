@@ -28,24 +28,27 @@ class ProductosController extends Controller
 
     public function store(ProductoRequest $request)
     {
-        $fecha = Carbon::now();
         $producto = new Producto();
+        $fecha = Carbon::now();
 
         $producto->NombreArticulo = $request->NombreArticulo;
         $producto->Seccion = $request->Seccion;
         $producto->Precio = $request->Precio;
         $producto->PaisOrigen = $request->PaisOrigen;
-        $producto->Fecha = $request->$fecha;
+        $producto->Fecha = $fecha;
 
         $producto->save();
+
+        // $producto->save();
 
         // $nombreProducto = $request->input('NombreArticulo');
         // $Seccion = $request->input('Seccion');
         // $Precio = $request->input('Precio');
         // $Pais = $request->input('PaisOrigen');
         // $Fecha = $request->input('Fecha');
-        // var_dump($Fecha);
+        // var_dump(json_encode($producto));
         // die();
+        return redirect()->route('productos.index');
     }
     public function show($id)
     {
@@ -58,27 +61,27 @@ class ProductosController extends Controller
         $producto = Producto::find($id);
         return view('productos.edit', compact('producto'));
     }
-    public function update(ProductoRequest $request,$id)
+    public function update(ProductoRequest $request, $id)
     {
-        
+
         $producto = Producto::find($id);
 
-        $producto->NombreArticulo =$request->NombreArticulo;
+        $producto->NombreArticulo = $request->NombreArticulo;
         $producto->Seccion = $request->Seccion;
         $producto->Precio = $request->Precio;
         $producto->PaisOrigen = $request->PaisOrigen;
 
-        $producto->update();
-        
-        return redirect()->route('productos.index')->with(['message'=> 'Producto actualizado con éxito']);
+        $producto->save();
+
+        return redirect()->route('productos.index');
     }
-    
-    public function delete($id){
+
+    public function delete($id)
+    {
 
 
         $producto = Producto::findOrFail($id);
         $producto->delete();
         return redirect()->route('productos.index');
-
     }
 }
