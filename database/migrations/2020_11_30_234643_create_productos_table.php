@@ -19,7 +19,7 @@ class CreateProductosTable extends Migration
             $table->string('Seccion');
             $table->integer('Precio');
             $table->string('PaisOrigen');
-            $table->dateTime('Fecha');
+            $table->string('Fecha');
             $table->timestamps();
         });
     }

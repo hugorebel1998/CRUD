@@ -9,12 +9,19 @@
                         {{ __('Editar producto') }}
                     </div>
                     <div class="card-body">
-                        <form action="#" method="POST">
+                        @if (session('message'))
+                            <div class="alert alert-primary" role="alert">
+                                {{ session('message') }}
+                            </div>
+                        @endif
+                        <form action="{{ route('productos.update', $producto->id) }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 pb-4">
                                     <label for="NombreArticulo">{{ __('Nombre de producto') }}</label>
-                                    <input type="text" class="form-control @error('NombreArticulo') is-invalid @enderror"
+                                    <input type="hidden" value="{{ $producto->id }}">
+                                    <input type="text" readonly="readonly"
+                                        class="form-control @error('NombreArticulo') is-invalid @enderror"
                                         name="NombreArticulo" value="{{ $producto->NombreArticulo }}">
                                     @error('NombreArticulo')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -46,11 +53,9 @@
                                 </div>
                                 <div class="col-md-6 pb-4">
                                     <label for="Fecha">{{ __('Fecha') }}</label>
-                                    <input type="date" class="form-control @error('Fecha') is-invalid @enderror"
-                                        name="Fecha" value="{{ $producto->Fecha }}">
-                                    @error('Fecha')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
+                                    <input type="text" readonly="readonly"
+                                        class="form-control @error('Fecha') is-invalid @enderror" name="Fecha"
+                                        value="{{ $producto->Fecha }}">
                                 </div>
                                 <div class="col-md-12 text-center mt-4">
                                     <button type="submit" class="btn btn-sm btn-primary">Guardar</button>

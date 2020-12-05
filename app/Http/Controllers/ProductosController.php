@@ -35,7 +35,7 @@ class ProductosController extends Controller
         $producto->Seccion = $request->Seccion;
         $producto->Precio = $request->Precio;
         $producto->PaisOrigen = $request->PaisOrigen;
-        $producto->Fecha = $fecha;
+        $producto->Fecha = $request->$fecha;
 
         $producto->save();
 
@@ -43,19 +43,42 @@ class ProductosController extends Controller
         // $Seccion = $request->input('Seccion');
         // $Precio = $request->input('Precio');
         // $Pais = $request->input('PaisOrigen');
-        $Fecha = $request->input('Fecha');
-        var_dump($Fecha);
-        die();
+        // $Fecha = $request->input('Fecha');
+        // var_dump($Fecha);
+        // die();
     }
     public function show($id)
     {
         $producto = Producto::find($id);
         return view('productos.show', compact('producto'));
     }
-    public function edit($id){
+    public function edit($id)
+    {
 
         $producto = Producto::find($id);
         return view('productos.edit', compact('producto'));
+    }
+    public function update(ProductoRequest $request,$id)
+    {
+        
+        $producto = Producto::find($id);
+
+        $producto->NombreArticulo =$request->NombreArticulo;
+        $producto->Seccion = $request->Seccion;
+        $producto->Precio = $request->Precio;
+        $producto->PaisOrigen = $request->PaisOrigen;
+
+        $producto->update();
+        
+        return redirect()->route('productos.index')->with(['message'=> 'Producto actualizado con éxito']);
+    }
+    
+    public function delete($id){
+
+
+        $producto = Producto::findOrFail($id);
+        $producto->delete();
+        return redirect()->route('productos.index');
 
     }
 }

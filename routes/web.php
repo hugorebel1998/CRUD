@@ -26,3 +26,5 @@ Route::get('/productos/create', 'ProductosController@create')->name('productos.c
 Route::post('/productos/store', 'ProductosController@store')->name('productos.store')->middleware('auth');
 Route::get('/productos/show/{producto}', 'ProductosController@show')->name('productos.show')->middleware('auth');
 Route::get('/productos/edit/{producto}', 'ProductosController@edit')->name('productos.edit')->middleware('auth');
+Route::post('/productos/update/{producto}', 'ProductosController@update')->name('productos.update')->middleware('auth');
+Route::get('/productos/delete/{producto}', 'ProductosController@delete')->name('productos.delete')->middleware('auth');

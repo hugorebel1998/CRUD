@@ -43,7 +43,7 @@
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                                     <a href="{{ route('productos.show', $producto->id) }}" class="btn btn-link text-secondary"><i class="fas fa-cogs text-primary"></i> Ver producto</a>
                                                     <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-link text-secondary"><i class="fas fa-edit text-success"></i> Editar producto</a>
-                                                    <a href="#" class="btn btn-link text-secondary"><i class="far fa-trash-alt text-danger"></i> Eliminar producto</a>
+                                                    <a href="{{ route('productos.delete', $producto->id)}}" class="btn btn-link text-secondary"><i class="far fa-trash-alt text-danger"></i> Eliminar producto</a>
                                                 </div>
                                             </div>
                                         </td>

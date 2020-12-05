@@ -14,7 +14,7 @@
                                 <div class="col-md-6 pb-4">
                                     <label for="NombreArticulo">{{ __('Nombre de producto') }}</label>
                                     <input type="text" class="form-control @error('NombreArticulo') is-invalid @enderror"
-                                        name="NombreArticulo">
+                                        name="NombreArticulo" value="{{ old('NombreArticulo') }}">
                                     @error('NombreArticulo')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -22,7 +22,7 @@
                                 <div class="col-md-6 pb-4">
                                     <label for="Seccion">{{ __('Sección') }}</label>
                                     <input type="text" class="form-control @error('Seccion') is-invalid @enderror"
-                                        name="Seccion">
+                                        name="Seccion" value="{{ old('Seccion') }}">
                                     @error('Seccion')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -30,7 +30,7 @@
                                 <div class="col-md-6 pb-4">
                                     <label for="Precio">{{ __('Precio') }}</label>
                                     <input type="number" class="form-control @error('Precio') is-invalid @enderror"
-                                        name="Precio">
+                                        name="Precio" value="{{ old('Precio') }}">
                                     @error('Precio')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -38,7 +38,7 @@
                                 <div class="col-md-6 pb-4">
                                     <label for="PaisOrigen">{{ __('País de Origen') }}</label>
                                     <input type="text" class="form-control @error('PaisOrigen') is-invalid @enderror"
-                                        name="PaisOrigen">
+                                        name="PaisOrigen" value="{{ old('PaisOrigen') }}">
                                     @error('PaisOrigen')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -46,7 +46,7 @@
                                 <div class="col-md-6 pb-4">
                                     <label for="Fecha">{{ __('Fecha') }}</label>
                                     <input type="date" class="form-control @error('Fecha') is-invalid @enderror"
-                                        name="Fecha">
+                                        name="Fecha" id="fecha" value="{{ old('Fecha') }}">
                                     @error('Fecha')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
